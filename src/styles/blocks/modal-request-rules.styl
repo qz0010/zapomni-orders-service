@@ -1,0 +1,14 @@
+.modal-request-rules
+  &__row
+    & + &
+      margin-top: 16px
+
+.device-size
+  &-medium, &-large
+    .modal-request-rules
+      .modal-request-rules__row + .modal-request-rules__row
+        margin-top: 20px
+      &__btn
+        display: block;
+        max-width: 196px
+        margin: 0 auto

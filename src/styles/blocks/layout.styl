@@ -1,0 +1,53 @@
+.logo
+  padding: 7px
+  position: absolute;
+  width: 100%
+  top: 0
+  left: 0
+
+  & > svg
+    height: 34px
+    width: auto;
+
+.layout
+  &__content, &__content-heading
+    width: 100%;
+    max-width: $content-max-width-1;
+    margin: 0 auto;
+
+  &__content
+    flex: 1;
+
+    &-heading
+      margin-bottom: 30px;
+    &-wrap
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 60px 0 60px
+
+.device-size
+  &-large
+    .logo
+      padding: 20px 40px
+
+      & > svg
+          height: 60px
+
+    .layout
+      &__content
+        &-wrap
+          padding: 100px 0 60px
+
+.device-size
+  &-small, &-medium
+    .logo
+      text-align: center;
+
+.device-size
+  &-medium, &-large
+    .layout
+      //padding: 0 75px
+      &__content
+        &-heading
+          margin-bottom: 42px;

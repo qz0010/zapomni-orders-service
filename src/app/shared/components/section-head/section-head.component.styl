@@ -1,0 +1,44 @@
+@import "vars.styl"
+
+.b
+  position: relative;
+  &__row
+    & + &
+      margin-top: 8px;
+
+  &__title
+    font-size: 24px;
+    font-weight: 500
+    line-height: 1
+
+  &__text
+    font-size: 17px
+
+::ng-deep .device-size
+  &-small
+    app-section-head
+      .b
+        padding-bottom: 10px
+
+        &:after
+          content: "";
+          position: absolute;
+          left: 16px
+          right: 16px
+          bottom: 0
+          height: 1px
+          background: $c-theme-8;
+
+::ng-deep .device-size
+  &-large, &-medium
+    app-section-head
+      .b
+        .b__row + .b__row
+          margin-top: 32px;
+
+        &__title
+          font-size: 70px;
+
+        &__text
+          font-size: 32px
+          font-weight: 500

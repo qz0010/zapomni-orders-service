@@ -1,0 +1,29 @@
+@import "vars.styl"
+
+.b
+  &__content, &__content-heading
+    width: 100%;
+    max-width: $content-max-width-1;
+    margin: 0 auto;
+
+  &__content
+    flex: 1;
+
+    &-heading
+      margin-bottom: 30px;
+    &-wrap
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 60px 0
+
+::ng-deep .device-size
+  &-medium, &-large
+    app-main-layout
+      & > .b
+        padding: 0 75px
+
+        .b
+          &__content
+            &-heading
+              margin-bottom: 42px;

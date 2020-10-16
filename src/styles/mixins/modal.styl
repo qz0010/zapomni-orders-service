@@ -1,0 +1,35 @@
+.mxn-modal
+  width: 100%
+  margin: 0 auto
+  padding: 20px 12px
+  border-radius: 3px;
+  background: $c-theme-2;
+
+  &_sz
+    &-small
+      max-width 392px
+    &-medium
+      max-width calc(100% - 16px)
+      font-size: 17px
+    &-large
+      max-width 740px
+
+.mxn-modal-parent-small-gap
+  .b__wrap
+    align-items flex-start !important
+    padding-top: 20vh;
+
+.device-size
+  &-medium, &-large
+    .mxn-modal
+      padding: 40px
+      border-radius: 12px;
+
+      &_sz
+        &-small
+          max-width 392px
+        &-medium
+          max-width 440px
+          font-size: 18px
+        &-large
+          max-width 740px

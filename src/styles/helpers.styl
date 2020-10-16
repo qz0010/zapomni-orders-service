@@ -1,0 +1,15 @@
+placeholder()
+  &::placeholder
+    {block}
+
+autocomplete()
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-internal-autofill-previewed,
+  &:-internal-autofill-selected
+    {block}
+
+_calc($per, $val)
+  return "calc(%s - %s)" % ($per $val)

@@ -1,0 +1,8 @@
+<div class="modal-dialog {{(showHide$ | async)?.parentClass ? ' ' + (showHide$ | async)?.parentClass : ''}}" *ngIf="showHide$ | async">
+  <div class="modal-dialog__overlay"></div>
+  <div class="modal-dialog__wrap" (click)="close()">
+    <div class="modal-dialog__body" (click)="onBodyClick($event)">
+      <ng-template #container></ng-template>
+    </div>
+  </div>
+</div>

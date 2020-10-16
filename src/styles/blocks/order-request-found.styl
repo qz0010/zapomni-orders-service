@@ -1,0 +1,43 @@
+$item-gap = 20px
+$item-gap-calc = $item-gap / 2;
+$item-gap-bottom_large = 28px
+$item-gap-bottom = 12px
+
+.order-request-found
+  &__form
+    &-item
+      & + &
+        margin-top: 12px
+    &-footer
+      margin-top: 12px
+
+.device-size
+  &-medium, &-large
+    .order-request-found
+      &__form
+        &-body
+          display: flex;
+          flex-wrap wrap;
+          max-width 620px + $item-gap;
+          margin: 0 (- $item-gap-calc) (- $item-gap-bottom);
+        &-item
+          flex: 1 1 300px
+          margin: 0 $item-gap-calc $item-gap-bottom
+
+      .order-request-found__form-item + .order-request-found__form-item
+        margin-top: 0
+
+      &__btn
+        display: block;
+        width: 165px;
+
+.device-size
+  &-large
+    .order-request-found
+      &__form
+        &-body
+          margin: 0 (- $item-gap-calc) (- $item-gap-bottom_large);
+        &-item
+          margin: 0 $item-gap-calc $item-gap-bottom_large
+        &-footer
+          margin-top: 28px

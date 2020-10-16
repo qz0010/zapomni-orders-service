@@ -1,0 +1,39 @@
+<div class="mxn-container" *ngIf="order">
+  <app-section>
+    <div class="order-info">
+      <div class="order-info__head">
+        <div class="order-info__head-row">
+          <h4 class="order-info__title" *ifViewportSize="['small', 'medium']">
+            Заказ № {{order.data?.number}}
+          </h4>
+          <h4 class="order-info__title" *ifViewportSize="['large']">Информация о заказе №{{order.data?.number}}</h4>
+        </div>
+        <div class="order-info__head-row">
+          <app-order-info-contacts></app-order-info-contacts>
+        </div>
+      </div>
+      <div class="order-info__body">
+        <div class="order-info__body-row order-info__body-row_table" *ngFor="let item of order.data.ExtOrdersContainer">
+          <app-order-info-table [order]="order" [orderItems]="item.data.OrderItemsContainer"></app-order-info-table>
+        </div>
+<!--        <div class="order-info__body-row order-info__body-row_text">-->
+<!--          <app-order-info-rules-text></app-order-info-rules-text>-->
+<!--        </div>-->
+      </div>
+      <div class="order-info__footer">
+        <div class="order-info__footer-item">
+          <button
+            class="order-info__btn mxn-btn mxn-btn_action-p-1 mxn-btn_action-fw-400 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action mxn-btn_action-light-accent">
+            Выслать заново
+          </button>
+        </div>
+        <div class="order-info__footer-item">
+          <button
+            class="order-info__btn mxn-btn mxn-btn_action-p-1 mxn-btn_action-fw-400 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action">
+            Отменить заказ
+          </button>
+        </div>
+      </div>
+    </div>
+  </app-section>
+</div>

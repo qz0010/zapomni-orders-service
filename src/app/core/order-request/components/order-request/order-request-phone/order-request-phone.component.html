@@ -1,0 +1,70 @@
+<div class="mxn-container">
+  <app-section>
+    <div class="order-request-phone">
+      <h3 class="mxn-title mxn-title_sz-1 mxn-title_mb-1 order-request-phone__title">
+        Введите номер телефона, на который был оформлен заказ
+      </h3>
+      <form class="order-request-phone__form" (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="order-request-phone__row">
+<!--          appMaskInputValue="+7"
+                   appPhoneInputValue
+                   appPhoneValidator-->
+          <div class="order-request-phone__input-wrap">
+            <input type="tel"
+                   placeholder="Введите номер телефона"
+                   name="phone"
+                    #phone="ngModel"
+                   [(ngModel)]="md.phone"
+                   required
+                   class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-phone__input">
+            <button type="submit"
+                    class="mxn-btn mxn-btn_action mxn-btn_full-width mxn-btn_ta-c order-request-phone__btn order-request-phone__btn_submit"
+                    [disabled]="fetching"
+                    *ngIf="!isEnteringCode">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                   class="mxn-animate-spin"
+                   *ngIf="fetching">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0104 0C5.78574 0 0 5.36248 0 12C0.0118768 12.6031 0.0508459 13.1895 0.12509 13.7098C0.348982 15.1762 1.14426 15.5197 1.80364 15.4614C2.13896 15.4317 2.44002 15.2758 2.6377 15.0235C2.82572 14.7834 2.94222 14.4507 2.86705 13.96C2.85131 13.8921 2.8455 13.8163 2.83579 13.7515C2.72688 13.1892 2.64813 12.6035 2.64813 12C2.64813 6.84011 6.85162 2.65857 12.0104 2.65857C17.1583 2.65857 21.3519 6.84011 21.3519 12C21.3519 17.149 17.1594 21.3415 12.0104 21.3415C10.8489 21.3415 9.74788 21.134 8.73675 20.7576C7.07503 20.0543 5.99281 22.3019 7.68376 23.1973C9.00081 23.8198 10.7034 23.9906 12.0104 24C18.6363 24 24 18.6376 24 12C23.8861 5.04417 17.9329 0.0984479 12.0104 0Z" fill="white"/>
+              </svg>
+
+              <ng-template [ngIf]="!fetching">
+                Найти
+              </ng-template>
+            </button>
+          </div>
+        </div>
+
+        <div class="order-request-phone__row" *ngIf="isEnteringCode">
+          <div class="order-request-phone__input-wrap">
+            <input type="text"
+                   placeholder="Введите код из СМС"
+                   name="code"
+                   [(ngModel)]="md.code"
+                   class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-phone__input">
+
+            <button type="button"
+                    class="mxn-btn mxn-btn_action mxn-btn_full-width mxn-btn_ta-c order-request-phone__btn"
+                    [disabled]="fetching"
+                    (click)="onSubmitCode()">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                   class="mxn-animate-spin"
+                   *ngIf="fetching">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0104 0C5.78574 0 0 5.36248 0 12C0.0118768 12.6031 0.0508459 13.1895 0.12509 13.7098C0.348982 15.1762 1.14426 15.5197 1.80364 15.4614C2.13896 15.4317 2.44002 15.2758 2.6377 15.0235C2.82572 14.7834 2.94222 14.4507 2.86705 13.96C2.85131 13.8921 2.8455 13.8163 2.83579 13.7515C2.72688 13.1892 2.64813 12.6035 2.64813 12C2.64813 6.84011 6.85162 2.65857 12.0104 2.65857C17.1583 2.65857 21.3519 6.84011 21.3519 12C21.3519 17.149 17.1594 21.3415 12.0104 21.3415C10.8489 21.3415 9.74788 21.134 8.73675 20.7576C7.07503 20.0543 5.99281 22.3019 7.68376 23.1973C9.00081 23.8198 10.7034 23.9906 12.0104 24C18.6363 24 24 18.6376 24 12C23.8861 5.04417 17.9329 0.0984479 12.0104 0Z" fill="white"/>
+              </svg>
+
+              <ng-template [ngIf]="!fetching">
+                Подтвердить
+              </ng-template>
+            </button>
+          </div>
+        </div>
+        <div class="order-request-phone__row" *ngIf="phone.errors?.ordersError || phone.errors?.resError">
+          <p class="order-request-phone__error mxn-error-text">
+            К сожалению, по указанному номеру заказы не найдены.
+          </p>
+        </div>
+      </form>
+    </div>
+  </app-section>
+</div>
+

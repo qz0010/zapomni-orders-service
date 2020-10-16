@@ -1,0 +1,105 @@
+.order-info-table
+  padding: 8px
+  border-radius: 3px
+  font-size: 17px
+  background: $c-bg-1;
+
+  &__row
+    & + &
+      margin-top: 12px
+      padding-top: 12px
+      border-top: 1px solid $c-theme-7
+
+  &__td
+    &-row
+      //&_ico
+      //  background: red;
+      & + &
+        margin-top: 8px
+
+    &_btn
+      max-width: 146px
+
+      & > .btn
+        padding-left: 0
+        padding-right: 0
+
+    &-text
+      &_light
+        font-size: 15px
+        color: $c-theme-5;
+
+.device-size
+  &-small
+    .order-info-table
+      &__td
+        &_btn
+          max-width: 136px
+
+.device-size
+  &-small, &-medium
+    .order-info-table
+      .order-info-table__td + .order-info-table__td
+        margin-top: 8px
+
+      .order-info-table__td_m-no-mb + .order-info-table__td_m-no-mb
+        margin-top: 0
+
+      &__td
+        &_btn
+          & > .btn
+            font-weight: 400
+            border-color: $c-theme-9;
+            color: $c-theme-9;
+        &_m-flex
+          display: flex;
+
+          &-alic
+            align-items center
+
+        &-row
+          &_m-flex-ico
+            padding-left: 8px
+
+      .order-info-table__td-text_m-flex + .order-info-table__td-text_m-flex
+        margin-left: 16px
+
+    .order-info-table__td-row_m-flex + .order-info-table__td-row_m-flex
+      margin: 0 0 0 16px
+
+.device-size
+  &-large
+    .order-info-table
+      padding: 16px
+      border-radius: 12px
+      font-size: 18px
+
+      &__row
+        display: flex;
+        margin: 0 -6px
+
+      .order-info-table__row + .order-info-table__row
+        margin-top: 15px
+        padding-top: 15px
+
+      .order-info-table__td-row + .order-info-table__td-row
+        margin-top: 4px
+
+      .order-info-table__td-row + .order-info-table__td-row_ico
+        margin-top: 8px
+
+      &__td
+        width: (100%/6)
+        margin: 0 6px
+
+        &_btn
+          flex: 0 0 160px
+          max-width 160px
+
+        &-row
+          & + &
+            margin-top: 4px
+
+        &-text
+          &_light
+            font-size: 16px

@@ -1,0 +1,76 @@
+.order-info-contacts
+  font-size: 17px
+  line-height: 1.2
+  &__row
+    & + &
+      margin-top: 8px
+  &__td
+    &-text
+      &_link
+        display: inline-block;
+        font-size: 14px
+
+.device-size
+  &-medium
+    .order-info-contacts
+      &__form
+        &-item
+          &_input
+            width: 300px
+        &-btn
+          max-width 132px
+
+.device-size
+  &-small, &-medium
+    .order-info-contacts
+      &__td
+       &-text
+         &_text
+          display: block;
+
+      &__form
+        margin-top: 5px
+        &-item
+          &_btn
+            display: inline-block;
+
+      .order-info-contacts__form-item_btn + .order-info-contacts__form-item_btn
+        margin-left: 8px
+
+      .order-info-contacts__form-item + .order-info-contacts__form-item
+        margin-top: 12px
+
+.device-size
+  &-large
+    .order-info-contacts
+      font-size: 20px
+      line-height: 1
+      &__row
+        display: flex;
+      .order-info-contacts__row + .order-info-contacts__row
+          margin-top: 12px
+
+      .order-info-contacts__td-text + .order-info-contacts__td-text
+        margin-left: 6px
+      &__td
+        &_title
+          width: 180px
+          padding-right: 6px
+        &-text_link
+          font-size: 18px
+
+      &__form
+        display: flex;
+
+        &-item
+          &_input
+            width: 300px
+
+        &-btn
+          min-width 148px
+
+          &_submit
+            min-width 180px
+
+    .order-info-contacts__form-item + .order-info-contacts__form-item
+      margin-left: 20px

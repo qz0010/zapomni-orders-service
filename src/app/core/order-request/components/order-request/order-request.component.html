@@ -1,0 +1,18 @@
+<div class="b">
+  <div class="b__row">
+    <app-order-request-phone
+      [ordersError]="ordersError"
+      [ordersFetching]="fetching"
+      (login)="onLogin($event)"
+      (loginCode)="onLoginCode($event)"
+    ></app-order-request-phone>
+  </div>
+
+  <div class="b__row" *ngFor="let order of orders">
+    <app-order-info [order]="order"></app-order-info>
+  </div>
+  <div class="b__row">
+    <app-order-request-found></app-order-request-found>
+  </div>
+</div>
+

@@ -1,0 +1,94 @@
+<div class="order-info-table" *ngIf="orderItems?.length">
+  <div class="order-info-table__row" *ngFor="let item of orderItems">
+    <ng-template [ngIf]="item.data">
+      <div class="order-info-table__td order-info-table__td_m-no-mb">
+      <span class="order-info-table__td-text">
+        {{item.data.ProductItem?.ProductDesc?.name?.ru}}
+      </span>
+      </div>
+      <div class="order-info-table__td order-info-table__td_m-no-mb">
+        <div class="order-info-table__td-row" *ngIf="item.data.ProductItem?.Schedule?.begin_time">
+        <span class="order-info-table__td-text" *ifViewportSize="['large', 'medium']">
+          {{item.data.ProductItem.Schedule.begin_time | date: 'd MMMM, EEEE, H:mm'}}
+        </span>
+          <span class="order-info-table__td-text" *ifViewportSize="['small']">
+          {{item.data.ProductItem.Schedule.begin_time | date: 'd MMMM, H:mm'}}
+        </span>
+        </div>
+        <div class="order-info-table__td-row" *ngIf="item.data.ProductItem?.Spot?.name?.ru">
+        <span class="order-info-table__td-text order-info-table__td-text_light">
+          {{item.data.ProductItem.Spot.name.ru}}
+        </span>
+        </div>
+      </div>
+      <div class="order-info-table__td order-info-table__td_m-flex">
+        <div class="order-info-table__td-text order-info-table__td-text_m-flex">
+          Номер билета<br>
+          №{{item.data.number}}
+        </div>
+        <div class="order-info-table__td-text order-info-table__td-text_m-flex"
+             *ngIf="item.data.ProductItem?.HallPlace?.meta">
+          <ng-template [ngIf]="item.data.ProductItem.HallPlace.meta.row?.name">
+            Ряд {{item.data.ProductItem.HallPlace.meta.row.name}}<br>
+          </ng-template>
+          <ng-template [ngIf]="item.data.ProductItem.HallPlace.meta.seat">
+            Место {{item.data.ProductItem.HallPlace.meta.seat}}
+          </ng-template>
+        </div>
+      </div>
+      <div class="order-info-table__td">
+        <span class="order-info-table__td-text">
+          Цена билета<br>
+          {{+item.data.total_sum / 100}} ₽
+        </span>
+      </div>
+      <div class="order-info-table__td order-info-table__td_m-flex order-info-table__td_m-flex-alic">
+        <div class="order-info-table__td-row order-info-table__td-row_m-flex">
+          <span class="order-info-table__td-text">
+            Сумма возврата<br>
+            {{(+item.data.total_sum - +item.data.refund_fee) / 100}} ₽
+          </span>
+        </div>
+        <div
+          class="order-info-table__td-row order-info-table__td-row_m-flex order-info-table__td-row_m-flex-ico order-info-table__td-row_ico">
+        <span class="mxn-cur-p ico ico_info"
+              *ngIf="isDesktop"
+              (mouseenter)="onInfoHover($event)"
+              (mouseleave)="onInfoUnHover()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="9.04297" width="7.97546" height="2" transform="rotate(90 12 9.04297)" fill="#BDA776"/>
+            <path
+              d="M20.999 10.9995C20.999 16.4822 16.5544 20.9268 11.0718 20.9268C5.58911 20.9268 1.14453 16.4822 1.14453 10.9995C1.14453 5.51685 5.58911 1.07227 11.0718 1.07227C16.5544 1.07227 20.999 5.51685 20.999 10.9995Z"
+              stroke="#BDA776" stroke-width="2"/>
+            <rect x="12" y="5.01758" width="2.06512" height="2" transform="rotate(90 12 5.01758)" fill="#BDA776"/>
+          </svg>
+        </span>
+          <span class="mxn-cur-p ico ico_info"
+                *ngIf="!isDesktop"
+                (click)="onInfoClick($event)" [appClickOutside]="true" (clickOutside)="closeInfoPopover()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="9.04297" width="7.97546" height="2" transform="rotate(90 12 9.04297)" fill="#BDA776"/>
+            <path
+              d="M20.999 10.9995C20.999 16.4822 16.5544 20.9268 11.0718 20.9268C5.58911 20.9268 1.14453 16.4822 1.14453 10.9995C1.14453 5.51685 5.58911 1.07227 11.0718 1.07227C16.5544 1.07227 20.999 5.51685 20.999 10.9995Z"
+              stroke="#BDA776" stroke-width="2"/>
+            <rect x="12" y="5.01758" width="2.06512" height="2" transform="rotate(90 12 5.01758)" fill="#BDA776"/>
+          </svg>
+        </span>
+        </div>
+      </div>
+      <div class="order-info-table__td order-info-table__td_btn">
+        <span
+          class="btn mxn-btn mxn-btn_action-p-2 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action mxn-btn_action-light mxn-btn_action-light-bg"
+          *ngIf="item.data.status === 'refund'">
+          Произведен возврат
+        </span>
+        <button
+          class="btn mxn-btn mxn-btn_action-p-2 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action mxn-btn_action-light mxn-btn_action-light-bg"
+          *ngIf="item.data.status !== 'refund'"
+          (click)="onCancelTicket(item)">
+          Отменить билет
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

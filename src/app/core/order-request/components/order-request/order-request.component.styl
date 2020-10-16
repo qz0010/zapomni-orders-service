@@ -1,0 +1,11 @@
+.b
+  &__row
+    & + &
+      margin-top: 20px
+
+::ng-deep .device-size
+  &-medium, &-large
+    app-order-request
+      & > .b
+        .b__row + .b__row
+            margin-top: 32px

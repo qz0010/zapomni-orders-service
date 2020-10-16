@@ -1,0 +1,33 @@
+@import "vars.styl"
+
+.b
+  &__head
+    margin-bottom: 32px
+    line-height: 1
+
+    &-row
+      & + &
+        margin-top: 24px
+
+  &__title
+    display: inline-block;
+    padding-bottom: 6px
+    border-bottom: 2px solid $c-theme-1-2
+    font-size: 16px
+    font-weight: 500
+    text-transform: uppercase;
+
+  &__body
+    &-row
+      margin-top: 24px
+      &:first-child
+        margin-top: 0
+      &_text
+        margin-top: 12px
+
+::ng-deep .device-size
+  &-medium, &-large
+    app-order-info > .mxn-container > app-section
+      & > .b .b__title
+        padding-bottom: 7px
+        font-size: 24px

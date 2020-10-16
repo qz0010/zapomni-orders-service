@@ -1,0 +1,36 @@
+.footer
+  font-size: 16px
+  line-height: 1
+
+  &__row
+    padding: 24px 0 0
+
+
+.device-size
+  &-small
+    .footer
+      .footer__item + .footer__item, .footer__item-item + .footer__item-item
+        margin-top: 12px
+
+.device-size
+  &-small
+    .footer
+      &__item
+        padding-top: 12px
+        border-top: 1px solid $c-theme-8
+
+.device-size
+  &-large, &-medium
+    .footer
+      font-size: 18px
+
+      &__row
+        display: flex;
+        justify-content: space-between;
+        padding: 60px 0 0
+
+      &__item
+        display: flex;
+
+    .footer__item-item + .footer__item-item
+      margin-left: 4px

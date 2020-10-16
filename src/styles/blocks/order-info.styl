@@ -1,0 +1,61 @@
+.order-info
+  &__head
+    margin-bottom: 16px
+    line-height: 1
+
+    &-row
+      & + &
+        margin-top: 16px
+
+  &__title
+    display: inline-block;
+    padding-bottom: 6px
+    border-bottom: 2px solid $c-theme-1-2
+    font-size: 16px
+    font-weight: 500
+    text-transform: uppercase;
+
+  &__body
+    &-row
+      margin-top: 16px
+      &:first-child
+        margin-top: 0
+      &_text
+        margin-top: 4px
+
+  &__footer
+    display: flex;
+    margin-top: 16px
+    &-item
+      & + &
+        margin-left: 12px
+
+.device-size
+  &-small
+    .order-info
+      &__btn
+        padding: 8px 12px
+
+.device-size
+  &-large
+    .order-info
+      &__head
+        margin-bottom: 32px
+
+      .order-info__head-row + .order-info__head-row
+        margin-top: 24px
+
+      &__body
+        &-row
+          margin-top: 24px
+          &_text
+            margin-top: 12px
+      &__title
+        padding-bottom: 7px
+        font-size: 24px
+
+      &__footer
+        margin-top: 24px
+
+      .order-info__footer-item + .order-info__footer-item
+        margin-left: 35px

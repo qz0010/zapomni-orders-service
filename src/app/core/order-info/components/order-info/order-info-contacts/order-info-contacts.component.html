@@ -1,0 +1,53 @@
+<div class="order-info-contacts">
+  <div class="order-info-contacts__row">
+    <div class="order-info-contacts__td order-info-contacts__td_title">
+      <span class="order-info-contacts__td-text">Телефон</span>
+    </div>
+    <div class="order-info-contacts__td">
+      <span class="order-info-contacts__td-text order-info-contacts__td-text_text">8 (960) 026-85-92</span>
+    </div>
+  </div>
+  <div class="order-info-contacts__row">
+    <div class="order-info-contacts__td order-info-contacts__td_title">
+      <span class="order-info-contacts__td-text">Email</span>
+    </div>
+    <div class="order-info-contacts__td">
+      <ng-template [ngIf]="!isChanging">
+        <span class="order-info-contacts__td-text order-info-contacts__td-text_text">Ivanov.d@yandex.ru</span>
+        <span class="mxn-link mxn-link_td order-info-contacts__td-text order-info-contacts__td-text_link"
+              (click)="onChangePhone()">
+          Изменить
+        </span>
+      </ng-template>
+
+      <ng-template [ngIf]="isChanging">
+        <form action="" class="order-info-contacts__form" #form="ngForm">
+          <div class="order-info-contacts__form-item order-info-contacts__form-item_input">
+            <input type="email"
+                   placeholder="Email"
+                   name="email"
+                   #phone="ngModel"
+                   appEmailValidator
+                   [(ngModel)]="md"
+                   required
+                   class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-info-contacts__input">
+          </div>
+          <div class="order-info-contacts__form-item order-info-contacts__form-item_btn">
+            <button type="submit"
+                    [disabled]="form.invalid"
+                    class="mxn-btn mxn-btn_action mxn-btn_action-p-1 mxn-btn_full-width mxn-btn_ta-c order-info-contacts__form-btn order-info-contacts__form-btn_submit">
+              Подтвердить
+            </button>
+          </div>
+          <div class="order-info-contacts__form-item order-info-contacts__form-item_btn">
+            <button type="submit"
+                    class="mxn-btn mxn-btn_action mxn-btn_action-p-1 mxn-btn_action-light-bg mxn-btn_action-light mxn-btn_full-width mxn-btn_ta-c order-info-contacts__form-btn"
+                    (click)="onChangeCancel()">
+              Отмена
+            </button>
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+</div>

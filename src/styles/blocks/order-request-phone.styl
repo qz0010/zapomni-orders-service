@@ -1,0 +1,49 @@
+.order-request-phone
+  &__input
+    display: block;
+    max-width 300px
+
+  &__row
+    & + &
+      margin-top: 12px
+
+  &__btn
+    padding: 8px
+    margin: 12px 0 0;
+    //max-width 146px
+    max-width 172px
+
+    &_submit
+      max-width 132px
+
+    & > svg
+      height: 14px
+      width: auto;
+
+.device-size
+  &-small
+    .order-request-phone
+      &__input
+        max-width 100%
+      &__btn
+        max-width 100%
+
+.device-size
+  &-large
+    .order-request-phone
+      &__input
+        flex: 1 0 auto;
+        max-width: 300px;
+
+      &__input-wrap
+        display: flex;
+        flex-wrap: wrap;
+
+      &__btn
+        padding: 0
+        display: flex;
+        //flex: 0 1 132px;
+        margin: 0 0 0 20px
+
+        & > svg
+          height: 24px

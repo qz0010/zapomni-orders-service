@@ -1,0 +1,42 @@
+<div class="mxn-container">
+  <app-section>
+    <div class="order-request-found">
+      <h3 class="mxn-title mxn-title_sz-1 mxn-title_mb-1 order-request-found__title">
+        Если вы не нашли свой заказ, заполните данные ниже
+      </h3>
+      <form class="order-request-found__form" (ngSubmit)="onSubmit()">
+        <div class="order-request-found__form-body">
+          <div class="order-request-found__form-item">
+            <div class="order-request-found__input-wrap">
+              <input type="text" placeholder="Название мероприятия" class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-found__input">
+            </div>
+          </div>
+          <div class="order-request-found__form-item">
+            <div class="order-request-found__input-wrap">
+              <input type="text" placeholder="Дата мероприятия" class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-found__input">
+            </div>
+          </div>
+          <div class="order-request-found__form-item">
+            <div class="order-request-found__input-wrap">
+              <input type="email" placeholder="Email для связи" class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-found__input">
+            </div>
+          </div>
+          <div class="order-request-found__form-item">
+            <div class="order-request-found__input-wrap">
+              <input type="tel" placeholder="Телефон для связи" class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-found__input">
+            </div>
+          </div>
+          <div class="order-request-found__form-item">
+            <div class="order-request-found__input-wrap">
+              <input type="text" placeholder="Описание обращения" class="mxn-i-txt mxn-i-txt_full-width mxn-i-txt_theme-1 order-request-found__input">
+            </div>
+          </div>
+        </div>
+        <div class="order-request-found__form-footer">
+          <app-button-action type="submit" class="order-request-found__btn">Отправить</app-button-action>
+        </div>
+      </form>
+    </div>
+  </app-section>
+</div>
+

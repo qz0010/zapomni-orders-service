@@ -1,0 +1,40 @@
+.section-head
+  position: relative;
+  &__row
+    & + &
+      margin-top: 8px;
+
+  &__title
+    font-size: 24px;
+    font-weight: 500
+    line-height: 1
+
+  &__text
+    font-size: 17px
+
+.device-size
+  &-small
+    .section-head
+      padding-bottom: 10px
+
+      &:after
+        content: "";
+        position: absolute;
+        left: 16px
+        right: 16px
+        bottom: 0
+        height: 1px
+        background: $c-theme-8;
+
+.device-size
+  &-large
+    .section-head
+      .section-head__row + .section-head__row
+          margin-top: 32px;
+
+      &__title
+        font-size: 70px;
+
+      &__text
+        font-size: 32px
+        font-weight: 500

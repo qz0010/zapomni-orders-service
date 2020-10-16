@@ -1,0 +1,39 @@
+<div class="mxn-modal mxn-modal_sz-medium modal-request-rules">
+  <form class="modal-request-rules__body">
+    <div class="modal-request-rules__row">
+      <p class="modal-request-rules__text" *ngIf="data?.data">
+        В соответствие с <span class="mxn-link mxn-link_td" (click)="onRulesClick()">правилами возврата</span>,
+        вам будет возвращено {{(data.data.total_sum - data.data.refund_fee) / 100}} рублей.<br>
+        Возврат денежных средств происходит до 30 банковских дней.
+      </p>
+    </div>
+    <div class="modal-request-rules__row">
+      <div class="check">
+        <label class="check__label">
+          <span class="check__check-wrap">
+            <input type="checkbox" class="check__check" name="agree" [(ngModel)]="agree">
+            <span class="check__check-fake">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9">
+                  <path fill="#FFF" fill-rule="evenodd"
+                        d="M4.252 8.66c.195.195.512.195.707 0l6.673-6.673c.195-.195.195-.511 0-.707l-.707-.707c-.196-.195-.512-.195-.708 0l-5.61 5.613-2.824-2.824c-.196-.195-.512-.195-.708 0l-.707.707c-.195.195-.195.512 0 .707L4.252 8.66z"/>
+              </svg>
+            </span>
+          </span> <span>
+            Я соглашаюсь с <span
+            class="mxn-link"
+            (click)="onRulesClick()">
+              Правилами возврата
+            </span>
+         </span>
+        </label>
+      </div>
+    </div>
+    <div class="modal-request-rules__row">
+      <button type="button"
+              class="mxn-btn mxn-btn_action mxn-btn_action-sz-3 mxn-btn_full-width mxn-btn_ta-c modal-request-rules__btn"
+              [disabled]="!agree || fetching" (click)="onApprove()">
+        Подтвердить
+      </button>
+    </div>
+  </form>
+</div>
