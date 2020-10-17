@@ -80,12 +80,25 @@ export interface IExtOrdersContainerItem {
 }
 
 export interface IOrderData {
+  uuid: string;
   ExtOrdersContainer: IExtOrdersContainerItem[];
   number: string;
+  email: string;
+  phone: string;
 }
 
 //order - number, email, phone
 export interface IOrder {
   data: IOrderData;
   meta: IOrderMeta;
+}
+
+export interface IOrderContacts {
+  email?: string;
+  phone?: string;
+}
+
+export interface IRefundRules {
+  refund_rules_offer: IMultiLang;
+  uuid: string;
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {IApiLoginBody, IOrder, IOrderItemsContainerItem} from '../types/api';
+import {IApiLoginBody, IOrder, IOrderContacts, IOrderItemsContainerItem, IRefundRules} from '../types/api';
 
 const apiUrl = environment.apiUrl;
 
@@ -12,10 +12,12 @@ const apiUrl = environment.apiUrl;
 export class OrdersService {
   private removeOrderItemSource: Subject<IOrderItemsContainerItem> = new Subject<IOrderItemsContainerItem>();
   public removeOrderItem$: Observable<IOrderItemsContainerItem> = this.removeOrderItemSource.asObservable();
+  public commonRules: IRefundRules;
 
   constructor(
     private http: HttpClient
   ) {
+    this.getCommonRules().subscribe(data => this.commonRules = data);
   }
 
   public login(data: IApiLoginBody): Observable<HttpResponse<any>> {
@@ -32,5 +34,13 @@ export class OrdersService {
 
   public removeOrderItemEmit(item: IOrderItemsContainerItem) {
     this.removeOrderItemSource.next(item);
+  }
+
+  public editContacts(order: IOrder, data: IOrderContacts): Observable<any> {
+    return this.http.post(`${apiUrl}/account/order/${order.data.uuid}`, data);
+  }
+
+  public getCommonRules(): Observable<IRefundRules> {
+    return this.http.get<IRefundRules>(`${apiUrl}/info/refund-rules`);
   }
 }

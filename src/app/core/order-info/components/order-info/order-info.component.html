@@ -9,16 +9,17 @@
           <h4 class="order-info__title" *ifViewportSize="['large']">Информация о заказе №{{order.data?.number}}</h4>
         </div>
         <div class="order-info__head-row">
-          <app-order-info-contacts></app-order-info-contacts>
+          <app-order-info-contacts [emailMd]="email" [phone]="order.data?.phone" (changeEmail)="onContactsChange($event)"></app-order-info-contacts>
         </div>
       </div>
       <div class="order-info__body">
         <div class="order-info__body-row order-info__body-row_table" *ngFor="let item of order.data.ExtOrdersContainer">
           <app-order-info-table [order]="order" [orderItems]="item.data.OrderItemsContainer"></app-order-info-table>
+
+          <div class="order-info__body-row order-info__body-row_text">
+            <app-order-info-rules-text></app-order-info-rules-text>
+          </div>
         </div>
-<!--        <div class="order-info__body-row order-info__body-row_text">-->
-<!--          <app-order-info-rules-text></app-order-info-rules-text>-->
-<!--        </div>-->
       </div>
       <div class="order-info__footer">
         <div class="order-info__footer-item">

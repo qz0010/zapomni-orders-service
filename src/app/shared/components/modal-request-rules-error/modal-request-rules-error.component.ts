@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalDialogService} from '../../../core/modal-dialog/services/modal-dialog.service';
 
 @Component({
   selector: 'app-modal-request-rules-error',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalRequestRulesErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public modal: ModalDialogService
+  ) { }
 
   ngOnInit(): void {
   }

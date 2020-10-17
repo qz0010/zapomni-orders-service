@@ -1,7 +1,26 @@
 .modal-rules
+  &__html
+    font-size: 18px
+    & > * + *
+      margin-top: 26px
+    ul, ol
+      box-sizing border-box
+      padding-left: 20px
+      list-style disc
+    h1, h2, h3, h4, h5, h6
+      font-weight: 500
+
   &__footer
-    margin-top: 32px
+    margin-top: 16px
 
   &__btn
-    width: 172px
+    display: block;
     margin: 0 auto
+
+.device-size
+  &-medium, &-large
+    .modal-rules
+      &__btn
+        max-width 172px
+      &__footer
+        margin-top: 32px

@@ -1,19 +1,19 @@
 <div class="order-info-contacts">
-  <div class="order-info-contacts__row">
+  <div class="order-info-contacts__row" *ngIf="phone">
     <div class="order-info-contacts__td order-info-contacts__td_title">
       <span class="order-info-contacts__td-text">Телефон</span>
     </div>
     <div class="order-info-contacts__td">
-      <span class="order-info-contacts__td-text order-info-contacts__td-text_text">8 (960) 026-85-92</span>
+      <span class="order-info-contacts__td-text order-info-contacts__td-text_text">{{phone}}</span>
     </div>
   </div>
-  <div class="order-info-contacts__row">
+  <div class="order-info-contacts__row" *ngIf="md">
     <div class="order-info-contacts__td order-info-contacts__td_title">
       <span class="order-info-contacts__td-text">Email</span>
     </div>
     <div class="order-info-contacts__td">
       <ng-template [ngIf]="!isChanging">
-        <span class="order-info-contacts__td-text order-info-contacts__td-text_text">Ivanov.d@yandex.ru</span>
+        <span class="order-info-contacts__td-text order-info-contacts__td-text_text">{{md}}</span>
         <span class="mxn-link mxn-link_td order-info-contacts__td-text order-info-contacts__td-text_link"
               (click)="onChangePhone()">
           Изменить
@@ -21,7 +21,7 @@
       </ng-template>
 
       <ng-template [ngIf]="isChanging">
-        <form action="" class="order-info-contacts__form" #form="ngForm">
+        <form action="" class="order-info-contacts__form" #form="ngForm" (ngSubmit)="onChangePhoneSubmit()">
           <div class="order-info-contacts__form-item order-info-contacts__form-item_input">
             <input type="email"
                    placeholder="Email"

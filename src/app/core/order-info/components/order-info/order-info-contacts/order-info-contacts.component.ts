@@ -9,6 +9,7 @@ export class OrderInfoContactsComponent implements OnInit {
   @Input('emailMd') set setMd(email: string) {
     this.md = email;
   }
+  @Input() phone: string;
   @Output() changeEmail: EventEmitter<string> = new EventEmitter<string>();
 
   public md: string;
