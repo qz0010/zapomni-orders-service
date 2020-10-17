@@ -50,7 +50,9 @@
               "src/assets"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["./src/styles"]
+              "includePaths": [
+                "./src/styles"
+              ]
             },
             "styles": [
               "src/styles.styl"
@@ -199,8 +201,13 @@
           "configurations": {
             "production": {}
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "zapomni-orders-service"
 }
