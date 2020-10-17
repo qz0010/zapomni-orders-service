@@ -258,7 +258,7 @@
               "sourceMap": false,
               "optimization": true
             },
-            "github": {
+            "ghp": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -281,7 +281,7 @@
               "browserTarget": "zapomni-orders-service:build:production",
               "serverTarget": "zapomni-orders-service:server:production"
             },
-            "github": {
+            "ghp": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -304,7 +304,7 @@
           },
           "configurations": {
             "production": {},
-            "github": {
+            "ghp": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -318,9 +318,21 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {},
+          "options": {
+            "baseHref": "./"
+          },
           "configurations": {
-            "github": {
+            "ghp": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
+            },
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

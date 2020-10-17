@@ -1,6 +1,6 @@
 [
   {
-    "context": "/api",
+    "context": "/",
     "target": "https://planetarium-widget.lastick.xd.unitix.cloud/api/widget/v1",
     "changeOrigin": true,
     "secure": false,

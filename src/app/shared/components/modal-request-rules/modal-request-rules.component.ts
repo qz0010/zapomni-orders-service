@@ -3,9 +3,10 @@ import {ModalDialogService} from '../../../core/modal-dialog/services/modal-dial
 import {ModalRulesComponent} from '../modal-rules/modal-rules.component';
 // import {last} from 'rxjs/operators';
 import {IOrderItemsContainerItem} from '../../types/api';
-import {Subject} from 'rxjs';
-import {finalize, takeUntil} from 'rxjs/operators';
+import {Subject, throwError} from 'rxjs';
+import {catchError, finalize, takeUntil} from 'rxjs/operators';
 import {OrdersService} from '../../services/orders.service';
+import {ModalRequestRulesErrorComponent} from '../modal-request-rules-error/modal-request-rules-error.component';
 
 @Component({
   selector: 'app-modal-request-rules',
@@ -47,6 +48,10 @@ export class ModalRequestRulesComponent implements OnInit, OnDestroy {
     this.fetching = true;
     this.ordersService.removeOrderItem(this.data)
       .pipe(
+        catchError(res => {
+          this.modal.open({component: ModalRequestRulesErrorComponent});
+          return throwError(res);
+        }),
         finalize(() => {
           this.fetching = false;
         })

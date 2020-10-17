@@ -76,14 +76,14 @@
         </span>
         </div>
       </div>
-      <div class="order-info-table__td order-info-table__td_btn">
+      <div class="order-info-table__td order-info-table__td_btn" [ngClass]="{'order-info-table__td_btn-refund': item.data.status === 'refund'}">
         <span
-          class="btn mxn-btn mxn-btn_action-p-2 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action mxn-btn_action-light mxn-btn_action-light-bg"
+          class="btn mxn-btn mxn-btn_action mxn-btn_refund mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action-light mxn-btn_action-light-bg"
           *ngIf="item.data.status === 'refund'">
-          Произведен возврат
+          Оформлен возврат
         </span>
         <button
-          class="btn mxn-btn mxn-btn_action-p-2 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action mxn-btn_action-light mxn-btn_action-light-bg"
+          class="btn btn_action mxn-btn mxn-btn_action-p-2 mxn-btn_full-width mxn-btn_ta-c mxn-btn_action-fw-400 mxn-btn_action mxn-btn_action-light mxn-btn_action-light-bg"
           *ngIf="item.data.status !== 'refund'"
           (click)="onCancelTicket(item)">
           Отменить билет

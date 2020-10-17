@@ -14,6 +14,7 @@ import {ModalRequestRulesComponent} from './components/modal-request-rules/modal
 import {ValidatorsModule} from './validators/validators.module';
 import {ClickOutsideDirective} from './directives/click-outside.directive';
 import {FormsModule} from '@angular/forms';
+import { ModalRequestRulesErrorComponent } from './components/modal-request-rules-error/modal-request-rules-error.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     PopoverOrderItemInfoComponent,
     ModalRulesComponent,
     ModalRequestRulesComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    ModalRequestRulesErrorComponent
   ],
   exports: [
     MainLayoutComponent,

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: ''
+  apiUrl: 'https://cors-anywhere.herokuapp.com/https://planetarium-widget.lastick.xd.unitix.cloud/api/widget/v1'
 };
