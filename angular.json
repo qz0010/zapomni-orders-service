@@ -87,6 +87,34 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -173,6 +201,16 @@
               ],
               "sourceMap": false,
               "optimization": true
+            },
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
             }
           }
         },
@@ -186,6 +224,16 @@
             "production": {
               "browserTarget": "zapomni-orders-service:build:production",
               "serverTarget": "zapomni-orders-service:server:production"
+            },
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
             }
           }
         },
@@ -199,12 +247,34 @@
             ]
           },
           "configurations": {
-            "production": {}
+            "production": {},
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
+            }
           }
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {},
+          "configurations": {
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
+            }
+          }
         }
       }
     }

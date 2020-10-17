@@ -2,9 +2,6 @@
   {
     "context": "/api",
     "target": "https://planetarium-widget.lastick.xd.unitix.cloud/api/widget/v1",
-    "pathRewrite": {
-      "^/api": ""
-    },
     "changeOrigin": true,
     "secure": false,
     "proxyTimeout": 10000,

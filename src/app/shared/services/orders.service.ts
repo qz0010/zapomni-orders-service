@@ -19,15 +19,15 @@ export class OrdersService {
   }
 
   public login(data: IApiLoginBody): Observable<HttpResponse<any>> {
-    return this.http.post(`/api/login`, {type: 'sms', ...data}, {observe: 'response'});
+    return this.http.post(`${apiUrl}/login`, {type: 'sms', ...data}, {observe: 'response'});
   }
 
   public getOrders(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(`/api/account/order`);
+    return this.http.get<IOrder[]>(`${apiUrl}/account/order`);
   }
 
   public removeOrderItem(item: IOrderItemsContainerItem): Observable<any> {
-    return this.http.delete(`/api/account/order/item/${item.data.uuid}`);
+    return this.http.delete(`${apiUrl}/account/order/item/${item.data.uuid}`);
   }
 
   public removeOrderItemEmit(item: IOrderItemsContainerItem) {

@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run zapomni-orders-service:server:production",
     "prerender": "ng run zapomni-orders-service:prerender",
-    "deploy:ghp": "ng deploy --repo=https://github.com/qz0010/zapomni-orders-service --baseHref=/test"
+    "deploy:ghp": "ng deploy --configuration=github --repo=https://github.com/qz0010/zapomni-orders-service --baseHref=./"
   },
   "private": true,
   "dependencies": {

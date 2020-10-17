@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://planetarium-widget.lastick.xd.unitix.cloud/api/widget/v1'
+  apiUrl: ''
 };
 
 /*
